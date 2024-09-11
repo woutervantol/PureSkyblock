@@ -12,7 +12,7 @@ namespace PureSkyblock.Content.Items
 		// The Display Name and Tooltip of this item can be edited in the 'Localization/en-US_Mods.PureSkyblock.hjson' file.
 		public override void SetDefaults()
 		{
-			Item.damage = 50;
+			Item.damage = 500;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 40;
 			Item.height = 40;
@@ -29,7 +29,7 @@ namespace PureSkyblock.Content.Items
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.DirtBlock, 10);
+			recipe.AddIngredient(ItemID.DirtBlock, 2);
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 		}

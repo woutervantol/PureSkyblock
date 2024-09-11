@@ -2,12 +2,17 @@
 
 Items: {
 	TestSword: {
-		DisplayName: "Test Sword"
+		DisplayName: Test Sword
 		Tooltip:
 			'''
 			Template of an item
 			Replacing this tooltip is duty 
 			It's snowing on Mt.Fuji
 			'''
+	}
+
+	WoodenToilet: {
+		DisplayName: Wooden Toilet
+		Tooltip: ""
 	}
 }
