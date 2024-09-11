@@ -1,0 +1,3 @@
+displayName = Pure Skyblock
+author = Woeder
+version = 0.1
