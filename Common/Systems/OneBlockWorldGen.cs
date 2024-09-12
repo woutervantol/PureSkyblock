@@ -6,6 +6,8 @@ using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.GameContent;
+using System.Threading;
 
 namespace PureSkyblock.Common.Systems
 {
@@ -14,15 +16,18 @@ namespace PureSkyblock.Common.Systems
     {
         public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
         {
-            foreach (GenPass genpass in tasks)
-            {
-                genpass.Disable();
-            }
+            // foreach (GenPass genpass in tasks)
+            // {
+            //     // if (!genpass.Name.Equals("Reset"))
+            //     // {
+            //     //     genpass.Disable();
+            //     // }
+            // }
+            tasks.Add(new Passes.Clear());
         }
 
         public override void PostWorldGen()
         {
-            // TileID.Grass = 2
             WorldUtils.Gen(new Point(Main.spawnTileX, Main.spawnTileY), new Shapes.Rectangle(2, 1), new Actions.SetTile(TileID.Grass));
             WorldUtils.Gen(new Point(Main.spawnTileX, Main.spawnTileY-1), new Shapes.Rectangle(1, 1), new Actions.PlaceTile(TileID.Saplings));
             bool success = false;
@@ -35,12 +40,8 @@ namespace PureSkyblock.Common.Systems
                     break;
                 }
                 success = WorldGen.AttemptToGrowTreeFromSapling(Main.spawnTileX, Main.spawnTileY-1, false);
-                // success = grown != -1;
             }
             WorldUtils.Gen(new Point(Main.spawnTileX+1, Main.spawnTileY-1), new Shapes.Rectangle(1, 2), new Actions.ClearTile());
-            
-
-            
         }
     }
 }

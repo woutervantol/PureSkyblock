@@ -1,0 +1,23 @@
+// digraph Life {
+//     Dog -> Canine;
+//     Canine -> Mammal;
+//     Mammal -> Vertibrate;
+//     Vertibrate -> Animal;
+//     Cat -> Feline;
+//     Feline -> Mammal;
+//     Equine -> Mammal;
+//     Wolf -> Canine;
+//     Lion -> Feline;
+//     Insect -> Animal;
+// }
+
+digraph Dirt {
+
+    Tree -> Wood
+    Tree -> Leaves
+    Wood -> "Crafting Bench"
+    "Crafting Bench" -> Composter
+    Composter -> Dirt
+    "Leaves" -> Dirt
+
+}

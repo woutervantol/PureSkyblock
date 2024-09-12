@@ -15,4 +15,9 @@ Items: {
 		DisplayName: Wooden Toilet
 		Tooltip: ""
 	}
+
+	LeafBlock: {
+		DisplayName: Leaf Block
+		Tooltip: ""
+	}
 }
