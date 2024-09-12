@@ -26,6 +26,4 @@ digraph Dirt {
     Fertilizer -> Grass
 
     Acorn -> Tree
-
-    
 }

@@ -33,13 +33,9 @@ namespace PureSkyblock.Common.GlobalTiles
 
         public override void RightClick(int i, int j, int type)
         {
-            if (type == TileID.Saplings)
-            {
-                WorldGen.GrowTree(i, j);
-
-            }
-
-            if (type == TileID.Grass)
+            Player player = Main.player[Main.myPlayer];
+            
+            if (player.HeldItem.type == ItemID.Fertilizer && type == TileID.Grass)
             {
                 if (Main.tile[i - 1, j].TileType == TileID.Dirt)
                 {
