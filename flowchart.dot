@@ -20,4 +20,12 @@ digraph Dirt {
     Composter -> Dirt
     "Leaves" -> Dirt
 
+    Composter -> Fertilizer
+    Leaves -> Fertilizer
+    Fertilizer -> Tree
+    Fertilizer -> Grass
+
+    Acorn -> Tree
+
+    
 }

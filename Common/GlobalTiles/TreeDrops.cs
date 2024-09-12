@@ -5,6 +5,9 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using PureSkyblock.Content.Items.Placeable;
+﻿using Mono.Cecil.Cil;
+using MonoMod.Cil;
+using Terraria.Enums;
 
 namespace PureSkyblock.Common.GlobalTiles
 {
@@ -29,5 +32,32 @@ namespace PureSkyblock.Common.GlobalTiles
                 }
             }
         }
-	}
+
+
+        public override void Load() => IL_WorldGen.ShakeTree += ModifyForestTreeShakeDrops;
+        private void ModifyForestTreeShakeDrops(ILContext il)
+        {
+            ILCursor c = new(il);
+
+            c.GotoNext(MoveType.After, x => x.MatchCall(typeof(PlantLoader), nameof(PlantLoader.ShakeTree)));
+
+            c.Emit(OpCodes.Ldloc_0); // x
+            c.Emit(OpCodes.Ldloc_1); // y
+            c.Emit(OpCodes.Ldloc_3); // treeType
+            c.EmitDelegate(HookShakeTree);
+        }
+        private static void HookShakeTree(int x, int y, TreeTypes treeType)
+        {
+            int type = Main.tile[x, y].TileType;
+
+            if (type > TileID.Count)
+                return;
+
+            if (treeType == TreeTypes.Forest)
+            {
+                Item.NewItem(null, new Vector2(x * 16, y * 16), ItemID.Acorn);
+            }
+
+        }
+    }
 }
