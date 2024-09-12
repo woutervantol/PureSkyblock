@@ -20,4 +20,9 @@ Items: {
 		DisplayName: Leaf Block
 		Tooltip: ""
 	}
+
+	Composter: {
+		DisplayName: Composter
+		Tooltip: ""
+	}
 }
