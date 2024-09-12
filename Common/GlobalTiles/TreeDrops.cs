@@ -20,7 +20,13 @@ namespace PureSkyblock.Common.GlobalTiles
                 //We MUST check for fail to be false, as KillTile is actually called every time a tile is hit by an axe/pickaxe.  We only want to give ore when the tile is mined.
                 
                 Item.NewItem(null, new Vector2(i * 16, j * 16), ModContent.ItemType<LeafBlock>()); //Replace ItemID.GoldOre with ModContent.ModItem<YourItemType>() to spawn a modded item.
-                
+            }
+            else if (type == TileID.Trees)
+            {
+                if (Main.rand.NextBool(3))
+                {
+                    Item.NewItem(null, new Vector2(i * 16, j * 16), ModContent.ItemType<LeafBlock>());
+                }
             }
         }
 	}
